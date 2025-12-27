@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard - Top Guanyadors i Perdedors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 968px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .gainers .section-header {
+            color: #10b981;
+        }
+
+        .losers .section-header {
+            color: #ef4444;
+        }
+
+        .crypto-list {
+            list-style: none;
+        }
+
+        .crypto-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #f9fafb;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .crypto-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .rank {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #9ca3af;
+            width: 35px;
+            text-align: center;
+        }
+
+        .crypto-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 15px;
+        }
+
+        .crypto-info {
+            flex: 1;
+        }
+
+        .crypto-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 3px;
+        }
+
+        .crypto-symbol {
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .crypto-price {
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .price {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 3px;
+        }
+
+        .market-cap-rank {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .change {
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 8px;
+            min-width: 90px;
+            text-align: right;
+        }
+
+        .change.positive {
+            color: #10b981;
+            background: #d1fae5;
+        }
+
+        .change.negative {
+            color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            padding: 50px;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Crypto Dashboard</h1>
+            <p class="subtitle">Top 10 Guanyadors i Perdedors de l'Última Hora</p>
+        </header>
+
+        <div id="lastUpdated" class="last-updated"></div>
+
+        <div id="loading" class="loading">
+            Carregant dades...
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            Error carregant les dades. Si us plau, torna-ho a intentar més tard.
+        </div>
+
+        <div id="dashboard" class="dashboard" style="display: none;">
+            <div class="section gainers">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h2 class="section-title">Top Guanyadors</h2>
+                </div>
+                <ul id="gainersList" class="crypto-list"></ul>
+            </div>
+
+            <div class="section losers">
+                <div class="section-header">
+                    <span class="section-icon">📉</span>
+                    <h2 class="section-title">Top Perdedors</h2>
+                </div>
+                <ul id="losersList" class="crypto-list"></ul>
+            </div>
+        </div>
+
+        <footer>
+            Dades proporcionades per <a href="https://www.coingecko.com/" target="_blank">CoinGecko API</a> · 
+            Actualitzat cada hora
+        </footer>
+    </div>
+
+    <script>
+        function formatPrice(price) {
+            if (price >= 1) {
+                return '$' + price.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } else {
+                return '$' + price.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 6
+                });
+            }
+        }
+
+        function formatChange(change) {
+            const sign = change >= 0 ? '+' : '';
+            return sign + change.toFixed(2) + '%';
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleString('ca-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function createCryptoItem(crypto, index) {
+            const isPositive = crypto.price_change_1h >= 0;
+            
+            return `
+                <li class="crypto-item">
+                    <span class="rank">${index + 1}</span>
+                    <img class="crypto-icon" src="${crypto.image}" alt="${crypto.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Crect width=%2240%22 height=%2240%22 fill=%22%23ddd%22/%3E%3C/svg%3E'">
+                    <div class="crypto-info">
+                        <div class="crypto-name">${crypto.name}</div>
+                        <div class="crypto-symbol">${crypto.symbol}</div>
+                    </div>
+                    <div class="crypto-price">
+                        <div class="price">${formatPrice(crypto.current_price)}</div>
+                        <div class="market-cap-rank">#${crypto.market_cap_rank} MCap</div>
+                    </div>
+                    <div class="change ${isPositive ? 'positive' : 'negative'}">
+                        ${formatChange(crypto.price_change_1h)}
+                    </div>
+                </li>
+            `;
+        }
+
+        async function loadCryptoData() {
+            try {
+                const response = await fetch('crypto_data.json');
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                
+                const data = await response.json();
+                
+                // Update last updated time
+                if (data.last_updated) {
+                    document.getElementById('lastUpdated').textContent = 
+                        'Última actualització: ' + formatDate(data.last_updated);
+                }
+                
+                // Populate gainers
+                const gainersList = document.getElementById('gainersList');
+                gainersList.innerHTML = data.gainers
+                    .map((crypto, index) => createCryptoItem(crypto, index))
+                    .join('');
+                
+                // Populate losers
+                const losersList = document.getElementById('losersList');
+                losersList.innerHTML = data.losers
+                    .map((crypto, index) => createCryptoItem(crypto, index))
+                    .join('');
+                
+                // Show dashboard
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'grid';
+                
+            } catch (error) {
+                console.error('Error loading crypto data:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // Load data when page loads
+        loadCryptoData();
+        
+        // Reload data every 5 minutes to keep it fresh
+        setInterval(loadCryptoData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
