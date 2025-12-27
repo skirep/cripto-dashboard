@@ -63,8 +63,16 @@ def process_crypto_data(data: List[Dict[str, Any]]) -> Dict[str, Any]:
     top_losers = sorted_by_change[-10:][::-1]  # Reverse to show worst first
     
     # Format data for frontend
+    last_updated = ''
+    if data:
+        # Try to find the most recent timestamp
+        for coin in data[:10]:  # Check first 10 coins
+            if coin.get('last_updated'):
+                last_updated = coin.get('last_updated')
+                break
+    
     result = {
-        "last_updated": data[0].get('last_updated', '') if data else '',
+        "last_updated": last_updated,
         "gainers": [
             {
                 "id": coin.get('id', ''),

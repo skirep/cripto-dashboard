@@ -255,12 +255,12 @@
     <script>
         function formatPrice(price) {
             if (price >= 1) {
-                return '$' + price.toLocaleString('en-US', {
+                return '$' + price.toLocaleString('ca-ES', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
                 });
             } else {
-                return '$' + price.toLocaleString('en-US', {
+                return '$' + price.toLocaleString('ca-ES', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 6
                 });
