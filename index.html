@@ -107,11 +107,42 @@
             background: #f9fafb;
             border-radius: 12px;
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
         }
 
         .crypto-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .crypto-item.inactive {
+            opacity: 0.6;
+            background: #f3f4f6;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .status-badge.active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.inactive {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-badge.daily-avg {
+            background: #dbeafe;
+            color: #1e40af;
         }
 
         .rank {
@@ -197,6 +228,32 @@
             margin: 20px 0;
         }
 
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .info-box h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-box ul {
+            color: #6b7280;
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
         footer {
             text-align: center;
             color: white;
@@ -215,10 +272,23 @@
     <div class="container">
         <header>
             <h1>🚀 Crypto Dashboard</h1>
-            <p class="subtitle">Top 10 Guanyadors i Perdedors de l'Última Hora</p>
+            <p class="subtitle">Seguiment de Criptomonedes amb Històric Complet</p>
         </header>
 
         <div id="lastUpdated" class="last-updated"></div>
+
+        <div class="info-box">
+            <h3>ℹ️ Com Funciona Aquest Dashboard</h3>
+            <p><strong>Aquest dashboard fa un seguiment automàtic de les criptomonedes que més pujen i baixen:</strong></p>
+            <ul>
+                <li>📊 <strong>Actualització horària:</strong> Les dades s'actualitzen cada hora automàticament</li>
+                <li>📈 <strong>Top 10:</strong> Es mostren les 10 criptomonedes que més pugen i les 10 que més baixen</li>
+                <li>🔍 <strong>Seguiment històric:</strong> Un cop una cripto apareix al rànquing, se'n fa seguiment continu</li>
+                <li>⏰ <strong>Inactivitat:</strong> Si una cripto no apareix durant més de 2 dies, es marca com inactiva però es manté visible</li>
+                <li>📅 <strong>Mitjanes diàries:</strong> Després de 2 dies, les dades es consoliden en mitjanes diàries</li>
+                <li>🗂️ <strong>Històric de 10 dies:</strong> Es mantenen dades dels últims 10 dies com a màxim</li>
+            </ul>
+        </div>
 
         <div id="loading" class="loading">
             Carregant dades...
@@ -232,7 +302,7 @@
             <div class="section gainers">
                 <div class="section-header">
                     <span class="section-icon">📈</span>
-                    <h2 class="section-title">Top Guanyadors</h2>
+                    <h2 class="section-title">Top 10 Guanyadors</h2>
                 </div>
                 <ul id="gainersList" class="crypto-list"></ul>
             </div>
@@ -240,10 +310,24 @@
             <div class="section losers">
                 <div class="section-header">
                     <span class="section-icon">📉</span>
-                    <h2 class="section-title">Top Perdedors</h2>
+                    <h2 class="section-title">Top 10 Perdedors</h2>
                 </div>
                 <ul id="losersList" class="crypto-list"></ul>
             </div>
+        </div>
+
+        <div id="trackedSection" class="section" style="display: none; margin-top: 30px;">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2 class="section-title">Totes les Criptomonedes Seguides</h2>
+            </div>
+            <div style="margin-bottom: 20px; color: #6b7280; font-size: 0.9rem;">
+                <p><strong>Llegenda:</strong></p>
+                <p>• <span style="color: #065f46;">●</span> <strong>Activa:</strong> Apareix en el rànquing actual</p>
+                <p>• <span style="color: #991b1b;">●</span> <strong>Inactiva:</strong> Més de 2 dies sense aparèixer</p>
+                <p>• <span style="color: #1e40af;">●</span> <strong>Mitjana diària:</strong> Dades agregades per dia</p>
+            </div>
+            <ul id="trackedList" class="crypto-list"></ul>
         </div>
 
         <footer>
@@ -284,11 +368,30 @@
             });
         }
 
-        function createCryptoItem(crypto, index) {
+        function createCryptoItem(crypto, index, showStatus = false) {
             const isPositive = crypto.price_change_1h >= 0;
+            const isActive = crypto.is_active !== false;
+            const dataType = crypto.data_type || 'hourly';
+            const inactiveClass = !isActive ? ' inactive' : '';
+            
+            let statusBadge = '';
+            if (showStatus) {
+                if (!isActive) {
+                    statusBadge = '<span class="status-badge inactive">Inactiva</span>';
+                } else if (dataType === 'daily_average') {
+                    statusBadge = '<span class="status-badge daily-avg">Mitjana</span>';
+                } else {
+                    statusBadge = '<span class="status-badge active">Activa</span>';
+                }
+            }
+            
+            const marketCapDisplay = crypto.market_cap_rank 
+                ? `#${crypto.market_cap_rank} MCap`
+                : 'Mitjana diària';
             
             return `
-                <li class="crypto-item">
+                <li class="crypto-item${inactiveClass}">
+                    ${statusBadge}
                     <span class="rank">${index + 1}</span>
                     <img class="crypto-icon" src="${crypto.image}" alt="${crypto.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Crect width=%2240%22 height=%2240%22 fill=%22%23ddd%22/%3E%3C/svg%3E'">
                     <div class="crypto-info">
@@ -297,7 +400,7 @@
                     </div>
                     <div class="crypto-price">
                         <div class="price">${formatPrice(crypto.current_price)}</div>
-                        <div class="market-cap-rank">#${crypto.market_cap_rank} MCap</div>
+                        <div class="market-cap-rank">${marketCapDisplay}</div>
                     </div>
                     <div class="change ${isPositive ? 'positive' : 'negative'}">
                         ${formatChange(crypto.price_change_1h)}
@@ -333,6 +436,24 @@
                 losersList.innerHTML = data.losers
                     .map((crypto, index) => createCryptoItem(crypto, index))
                     .join('');
+                
+                // Populate tracked cryptos if available
+                if (data.tracked_cryptos && data.tracked_cryptos.length > 0) {
+                    // Sort tracked cryptos: active first, then by change percentage
+                    const sortedTracked = data.tracked_cryptos.sort((a, b) => {
+                        if (a.is_active !== b.is_active) {
+                            return b.is_active ? 1 : -1;
+                        }
+                        return b.price_change_1h - a.price_change_1h;
+                    });
+                    
+                    const trackedList = document.getElementById('trackedList');
+                    trackedList.innerHTML = sortedTracked
+                        .map((crypto, index) => createCryptoItem(crypto, index, true))
+                        .join('');
+                    
+                    document.getElementById('trackedSection').style.display = 'block';
+                }
                 
                 // Show dashboard
                 document.getElementById('loading').style.display = 'none';

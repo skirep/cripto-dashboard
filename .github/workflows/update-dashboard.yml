@@ -42,7 +42,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add crypto_data.json
+          git add crypto_data.json crypto_historical.json
           if git diff --quiet && git diff --staged --quiet; then
             echo "No changes to commit"
           else
