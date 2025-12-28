@@ -425,7 +425,7 @@
         <header>
             <h1>🚀 Crypto Dashboard</h1>
             <p class="subtitle">Seguiment de Criptomonedes amb Històric Complet</p>
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark theme">
                 <span id="themeIcon">🌙</span>
                 <span id="themeText">Mode fosc</span>
             </button>
@@ -702,7 +702,7 @@
             try {
                 const response = await fetch('crypto_historical.json');
                 if (!response.ok) {
-                    console.error('Failed to fetch historical data');
+                    console.error('Failed to fetch historical data:', response.status, response.statusText);
                     return null;
                 }
                 cachedHistoricalData = await response.json();
