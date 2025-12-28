@@ -505,12 +505,15 @@
             // Update button text and icon
             const themeIcon = document.getElementById('themeIcon');
             const themeText = document.getElementById('themeText');
-            if (newTheme === 'dark') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Mode clar';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Mode fosc';
+            
+            if (themeIcon && themeText) {
+                if (newTheme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                    themeText.textContent = 'Mode clar';
+                } else {
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = 'Mode fosc';
+                }
             }
         }
 
@@ -521,12 +524,15 @@
             
             const themeIcon = document.getElementById('themeIcon');
             const themeText = document.getElementById('themeText');
-            if (savedTheme === 'dark') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Mode clar';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Mode fosc';
+            
+            if (themeIcon && themeText) {
+                if (savedTheme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                    themeText.textContent = 'Mode clar';
+                } else {
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = 'Mode fosc';
+                }
             }
         }
 
@@ -574,11 +580,13 @@
 
         function createPriceGrid(cryptoData, historicalData) {
             if (!historicalData || !historicalData.cryptos) {
+                console.debug('No historical data available for price grid');
                 return '';
             }
 
             const cryptoInfo = historicalData.cryptos[cryptoData.id];
             if (!cryptoInfo) {
+                console.debug(`No crypto info found for ${cryptoData.id}`);
                 return '';
             }
 
