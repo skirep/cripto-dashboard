@@ -58,6 +58,11 @@ def save_historical_data(data: Dict[str, Any], filename: str = "crypto_historica
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def parse_timestamp(timestamp_str: str) -> datetime:
+    """Parse ISO timestamp string to datetime object."""
+    return datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+
+
 def update_historical_tracking(
     gainers: List[Dict[str, Any]], 
     losers: List[Dict[str, Any]], 
@@ -72,7 +77,9 @@ def update_historical_tracking(
     """
     historical = load_historical_data()
     cryptos = historical.get("cryptos", {})
-    current_time = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+    current_time = parse_timestamp(timestamp)
+    two_days_ago = current_time - timedelta(days=2)
+    cutoff_time = current_time - timedelta(days=10)
     
     # Get all currently ranked cryptos
     current_ranked = {}
@@ -121,7 +128,7 @@ def update_historical_tracking(
     
     # Process all tracked cryptos
     for crypto_id, crypto_info in cryptos.items():
-        last_seen = datetime.fromisoformat(crypto_info['last_seen'].replace('Z', '+00:00'))
+        last_seen = parse_timestamp(crypto_info['last_seen'])
         days_since_seen = (current_time - last_seen).total_seconds() / 86400
         
         # Mark as inactive if not seen for 2+ days
@@ -129,21 +136,19 @@ def update_historical_tracking(
             crypto_info["is_active"] = False
         
         # Clean up hourly data older than 10 days
-        cutoff_time = current_time - timedelta(days=10)
         crypto_info["hourly_data"] = [
             point for point in crypto_info["hourly_data"]
-            if datetime.fromisoformat(point['timestamp'].replace('Z', '+00:00')) > cutoff_time
+            if parse_timestamp(point['timestamp']) > cutoff_time
         ]
         
         # Calculate daily averages for data older than 2 days
-        first_seen = datetime.fromisoformat(crypto_info['first_seen'].replace('Z', '+00:00'))
-        two_days_ago = current_time - timedelta(days=2)
+        first_seen = parse_timestamp(crypto_info['first_seen'])
         
         if (current_time - first_seen).total_seconds() > 2 * 86400:
             # Group hourly data by day
             daily_groups = {}
             for point in crypto_info["hourly_data"]:
-                point_time = datetime.fromisoformat(point['timestamp'].replace('Z', '+00:00'))
+                point_time = parse_timestamp(point['timestamp'])
                 if point_time < two_days_ago:
                     day_key = point_time.strftime('%Y-%m-%d')
                     if day_key not in daily_groups:
@@ -168,7 +173,7 @@ def update_historical_tracking(
             # Remove hourly data points that are now in daily averages
             crypto_info["hourly_data"] = [
                 point for point in crypto_info["hourly_data"]
-                if datetime.fromisoformat(point['timestamp'].replace('Z', '+00:00')) >= two_days_ago
+                if parse_timestamp(point['timestamp']) >= two_days_ago
             ]
     
     historical["cryptos"] = cryptos
