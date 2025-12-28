@@ -360,10 +360,13 @@
         }
 
         .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            display: flex;
+            flex-direction: row;
             gap: 8px;
             margin-top: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 5px;
         }
 
         .price-point {
@@ -373,6 +376,8 @@
             padding: 8px;
             text-align: center;
             transition: all 0.2s ease;
+            flex-shrink: 0;
+            min-width: 80px;
         }
 
         .price-point:hover {
@@ -408,8 +413,11 @@
 
         @media (max-width: 768px) {
             .price-grid {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
                 gap: 6px;
+            }
+            
+            .price-point {
+                min-width: 60px;
             }
             
             .theme-toggle {
