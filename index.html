@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Dashboard - Top Guanyadors i Perdedors</title>
     <style>
+        :root {
+            /* Light theme */
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f9fafb;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --border-color: #d2d2d7;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --accent-primary: #0071e3;
+            --accent-secondary: #f5f5f7;
+            --positive-color: #10b981;
+            --positive-bg: #d1fae5;
+            --negative-color: #ef4444;
+            --negative-bg: #fee2e2;
+            --inactive-bg: #e5e5ea;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme */
+            --bg-primary: #1d1d1f;
+            --bg-secondary: #2c2c2e;
+            --bg-tertiary: #3a3a3c;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #86868b;
+            --border-color: #424245;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --accent-primary: #0a84ff;
+            --accent-secondary: #2c2c2e;
+            --positive-color: #34c759;
+            --positive-bg: rgba(52, 199, 89, 0.15);
+            --negative-color: #ff453a;
+            --negative-bg: rgba(255, 69, 58, 0.15);
+            --inactive-bg: #48484a;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,10 +51,11 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-primary);
             min-height: 100vh;
             padding: 20px;
-            color: #333;
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -26,27 +65,48 @@
 
         header {
             text-align: center;
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 40px;
+            position: relative;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .subtitle {
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
         }
 
         .last-updated {
             text-align: center;
-            color: white;
+            color: var(--text-secondary);
             margin-bottom: 30px;
             font-size: 0.9rem;
-            opacity: 0.8;
         }
 
         .dashboard {
@@ -63,10 +123,12 @@
         }
 
         .section {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .section-header {
@@ -74,7 +136,7 @@
             align-items: center;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .section-icon {
@@ -85,14 +147,15 @@
         .section-title {
             font-size: 1.8rem;
             font-weight: 700;
+            color: var(--text-primary);
         }
 
         .gainers .section-header {
-            color: #10b981;
+            color: var(--positive-color);
         }
 
         .losers .section-header {
-            color: #ef4444;
+            color: var(--negative-color);
         }
 
         .crypto-list {
@@ -104,20 +167,21 @@
             align-items: center;
             padding: 15px;
             margin-bottom: 12px;
-            background: #f9fafb;
+            background: var(--bg-tertiary);
             border-radius: 12px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .crypto-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
 
         .crypto-item.inactive {
             opacity: 0.6;
-            background: #f3f4f6;
+            background: var(--inactive-bg);
         }
 
         .status-badge {
@@ -131,24 +195,24 @@
         }
 
         .status-badge.active {
-            background: #d1fae5;
-            color: #065f46;
+            background: var(--positive-bg);
+            color: var(--positive-color);
         }
 
         .status-badge.inactive {
-            background: #fee2e2;
-            color: #991b1b;
+            background: var(--negative-bg);
+            color: var(--negative-color);
         }
 
         .status-badge.daily-avg {
-            background: #dbeafe;
-            color: #1e40af;
+            background: rgba(10, 132, 255, 0.15);
+            color: var(--accent-primary);
         }
 
         .rank {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #9ca3af;
+            color: var(--text-tertiary);
             width: 35px;
             text-align: center;
         }
@@ -167,13 +231,13 @@
         .crypto-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #1f2937;
+            color: var(--text-primary);
             margin-bottom: 3px;
         }
 
         .crypto-symbol {
             font-size: 0.85rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
@@ -184,13 +248,13 @@
 
         .price {
             font-size: 1rem;
-            color: #4b5563;
+            color: var(--text-secondary);
             margin-bottom: 3px;
         }
 
         .market-cap-rank {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: var(--text-tertiary);
         }
 
         .change {
@@ -203,68 +267,156 @@
         }
 
         .change.positive {
-            color: #10b981;
-            background: #d1fae5;
+            color: var(--positive-color);
+            background: var(--positive-bg);
         }
 
         .change.negative {
-            color: #ef4444;
-            background: #fee2e2;
+            color: var(--negative-color);
+            background: var(--negative-bg);
         }
 
         .loading {
             text-align: center;
-            color: white;
+            color: var(--text-primary);
             font-size: 1.5rem;
             padding: 50px;
         }
 
         .error {
-            background: #fee2e2;
-            color: #991b1b;
+            background: var(--negative-bg);
+            color: var(--negative-color);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
             margin: 20px 0;
+            border: 1px solid var(--negative-color);
         }
 
         .info-box {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .info-box h3 {
-            color: #1f2937;
+            color: var(--text-primary);
             margin-bottom: 10px;
             font-size: 1.2rem;
         }
 
         .info-box p {
-            color: #6b7280;
+            color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 8px;
         }
 
         .info-box ul {
-            color: #6b7280;
+            color: var(--text-secondary);
             margin-left: 20px;
             line-height: 1.8;
         }
 
         footer {
             text-align: center;
-            color: white;
+            color: var(--text-secondary);
             margin-top: 40px;
-            opacity: 0.8;
             font-size: 0.9rem;
         }
 
         footer a {
-            color: white;
+            color: var(--accent-primary);
             text-decoration: underline;
+        }
+
+        /* Price history grid */
+        .price-grid-container {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price-grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .current-price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .current-price-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .price-point {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .price-point:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .price-point-time {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .price-point-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .price-point-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .price-point-change.positive {
+            color: var(--positive-color);
+        }
+
+        .price-point-change.negative {
+            color: var(--negative-color);
+        }
+
+        @media (max-width: 768px) {
+            .price-grid {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                gap: 6px;
+            }
+            
+            .theme-toggle {
+                position: static;
+                margin: 20px auto 0;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -273,6 +425,10 @@
         <header>
             <h1>🚀 Crypto Dashboard</h1>
             <p class="subtitle">Seguiment de Criptomonedes amb Històric Complet</p>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Mode fosc</span>
+            </button>
         </header>
 
         <div id="lastUpdated" class="last-updated"></div>
@@ -337,6 +493,43 @@
     </div>
 
     <script>
+        // Theme management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update button text and icon
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Mode clar';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Mode fosc';
+            }
+        }
+
+        // Load saved theme on page load
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            if (savedTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Mode clar';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Mode fosc';
+            }
+        }
+
         function formatPrice(price) {
             if (price >= 1) {
                 return '$' + price.toLocaleString('ca-ES', {
@@ -368,7 +561,90 @@
             });
         }
 
-        function createCryptoItem(crypto, index, showStatus = false) {
+        function formatShortDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleString('ca-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function createPriceGrid(cryptoData, historicalData) {
+            if (!historicalData || !historicalData.cryptos) {
+                return '';
+            }
+
+            const cryptoInfo = historicalData.cryptos[cryptoData.id];
+            if (!cryptoInfo) {
+                return '';
+            }
+
+            // Get all data points (hourly and daily averages)
+            const dataPoints = [];
+            
+            // Add hourly data
+            if (cryptoInfo.hourly_data && cryptoInfo.hourly_data.length > 0) {
+                cryptoInfo.hourly_data.forEach(point => {
+                    dataPoints.push({
+                        timestamp: point.timestamp,
+                        price: point.price,
+                        change: point.change_1h,
+                        type: 'hourly'
+                    });
+                });
+            }
+
+            // Add daily averages
+            if (cryptoInfo.daily_averages && cryptoInfo.daily_averages.length > 0) {
+                cryptoInfo.daily_averages.forEach(point => {
+                    dataPoints.push({
+                        timestamp: point.date,
+                        price: point.avg_price,
+                        change: point.avg_change_1h,
+                        type: 'daily'
+                    });
+                });
+            }
+
+            // Sort by timestamp
+            dataPoints.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+            // Take last 12 points for display
+            const displayPoints = dataPoints.slice(-12);
+
+            if (displayPoints.length === 0) {
+                return '';
+            }
+
+            let gridHtml = '<div class="price-grid-container">';
+            gridHtml += '<div class="price-grid-header">';
+            gridHtml += '<span class="current-price-label">Preu actual:</span>';
+            gridHtml += `<span class="current-price-value">${formatPrice(cryptoData.current_price)}</span>`;
+            gridHtml += '</div>';
+            gridHtml += '<div class="price-grid">';
+
+            displayPoints.forEach(point => {
+                const isPositive = point.change >= 0;
+                const changeClass = isPositive ? 'positive' : 'negative';
+                const timeLabel = point.type === 'daily' ? point.timestamp : formatShortDate(point.timestamp);
+                
+                gridHtml += `
+                    <div class="price-point">
+                        <div class="price-point-time">${timeLabel}</div>
+                        <div class="price-point-value">${formatPrice(point.price)}</div>
+                        <div class="price-point-change ${changeClass}">${formatChange(point.change)}</div>
+                    </div>
+                `;
+            });
+
+            gridHtml += '</div></div>';
+            return gridHtml;
+        }
+
+        function createCryptoItem(crypto, index, showStatus = false, historicalData = null) {
             const isPositive = crypto.price_change_1h >= 0;
             const isActive = crypto.is_active !== false;
             const dataType = crypto.data_type || 'hourly';
@@ -388,6 +664,8 @@
             const marketCapDisplay = crypto.market_cap_rank 
                 ? `#${crypto.market_cap_rank} MCap`
                 : 'Mitjana diària';
+
+            const priceGrid = showStatus && historicalData ? createPriceGrid(crypto, historicalData) : '';
             
             return `
                 <li class="crypto-item${inactiveClass}">
@@ -405,8 +683,26 @@
                     <div class="change ${isPositive ? 'positive' : 'negative'}">
                         ${formatChange(crypto.price_change_1h)}
                     </div>
+                    ${priceGrid}
                 </li>
             `;
+        }
+
+        let cachedHistoricalData = null;
+
+        async function loadHistoricalData() {
+            try {
+                const response = await fetch('crypto_historical.json');
+                if (!response.ok) {
+                    console.error('Failed to fetch historical data');
+                    return null;
+                }
+                cachedHistoricalData = await response.json();
+                return cachedHistoricalData;
+            } catch (error) {
+                console.error('Error loading historical data:', error);
+                return null;
+            }
         }
 
         async function loadCryptoData() {
@@ -418,6 +714,11 @@
                 }
                 
                 const data = await response.json();
+
+                // Load historical data for price grids
+                if (!cachedHistoricalData) {
+                    await loadHistoricalData();
+                }
                 
                 // Update last updated time
                 if (data.last_updated) {
@@ -449,7 +750,7 @@
                     
                     const trackedList = document.getElementById('trackedList');
                     trackedList.innerHTML = sortedTracked
-                        .map((crypto, index) => createCryptoItem(crypto, index, true))
+                        .map((crypto, index) => createCryptoItem(crypto, index, true, cachedHistoricalData))
                         .join('');
                     
                     document.getElementById('trackedSection').style.display = 'block';
@@ -466,6 +767,9 @@
             }
         }
 
+        // Load theme first
+        loadTheme();
+        
         // Load data when page loads
         loadCryptoData();
         
