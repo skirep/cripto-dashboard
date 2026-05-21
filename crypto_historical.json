@@ -12,12 +12,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 3.34,
-          "change_1h": 2.279253028573203,
-          "market_cap_rank": 26
-        },
-        {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 3.38,
           "change_1h": -3.5762381570028845,
@@ -102,7 +96,14 @@
           "market_cap_rank": 29
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 3.34,
+          "avg_change_1h": 2.279253028573203,
+          "num_samples": 1
+        }
+      ]
     },
     "sky": {
       "info": {
@@ -254,9 +255,16 @@
         "image": "https://coin-images.coingecko.com/coins/images/66489/large/Plasma-symbol-green-1.png?1755142558"
       },
       "first_seen": "2025-12-28T11:48:00.816Z",
-      "last_seen": "2026-05-14T16:34:57.285Z",
-      "is_active": false,
-      "hourly_data": [],
+      "last_seen": "2026-05-21T04:36:13.773Z",
+      "is_active": true,
+      "hourly_data": [
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.087585,
+          "change_1h": -1.2573612085504453,
+          "market_cap_rank": 180
+        }
+      ],
       "daily_averages": []
     },
     "canton-network": {
@@ -433,15 +441,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/70428/large/audiera.png?1761964064"
       },
       "first_seen": "2025-12-28T11:48:00.816Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.610452,
-          "change_1h": -1.5589415894736691,
-          "market_cap_rank": 211
-        },
         {
           "timestamp": "2026-05-19T08:06:52.611Z",
           "price": 0.657758,
@@ -543,9 +545,22 @@
           "price": 0.629838,
           "change_1h": -6.7990869132208545,
           "market_cap_rank": 209
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.664083,
+          "change_1h": 3.9586159483176133,
+          "market_cap_rank": 203
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.610452,
+          "avg_change_1h": -1.5589415894736691,
+          "num_samples": 1
+        }
+      ]
     },
     "decred": {
       "info": {
@@ -555,7 +570,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/329/large/dcr.png?1762890696"
       },
       "first_seen": "2025-12-28T11:48:00.816Z",
-      "last_seen": "2026-05-21T01:34:12.438Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -575,6 +590,12 @@
           "price": 17.81,
           "change_1h": 2.165679579864809,
           "market_cap_rank": 146
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 18.18,
+          "change_1h": 2.9667207433598755,
+          "market_cap_rank": 145
         }
       ],
       "daily_averages": []
@@ -676,12 +697,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.03633753,
-          "change_1h": 1.5605741293316355,
-          "market_cap_rank": 79
-        },
-        {
           "timestamp": "2026-05-19T08:06:52.611Z",
           "price": 0.03654766,
           "change_1h": 1.4979572990998333,
@@ -703,9 +718,9 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.0357348,
-          "avg_change_1h": 0.49535261815287646,
-          "num_samples": 2
+          "avg_price": 0.03633753,
+          "avg_change_1h": 1.5605741293316355,
+          "num_samples": 1
         }
       ]
     },
@@ -888,14 +903,7 @@
           "market_cap_rank": 143
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.02673767,
-          "avg_change_1h": -2.140572809835945,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "world-liberty-financial": {
       "info": {
@@ -1226,7 +1234,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/52622/large/PUDGY_PENGUINS_PENGU_PFP.png?1733809110"
       },
       "first_seen": "2025-12-28T14:09:00.559Z",
-      "last_seen": "2026-05-20T19:41:07.951Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -1264,6 +1272,12 @@
           "price": 0.00913636,
           "change_1h": -1.3478054779224284,
           "market_cap_rank": 94
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.00935201,
+          "change_1h": -1.7065701513283218,
+          "market_cap_rank": 93
         }
       ],
       "daily_averages": []
@@ -1410,7 +1424,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/19/large/dash-logo.png?1696501423"
       },
       "first_seen": "2025-12-28T15:03:10.981Z",
-      "last_seen": "2026-05-20T23:23:58.288Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -1460,6 +1474,12 @@
           "price": 49.67,
           "change_1h": 1.2810594996249602,
           "market_cap_rank": 90
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 52.16,
+          "change_1h": -2.783050806751939,
+          "market_cap_rank": 89
         }
       ],
       "daily_averages": []
@@ -1564,14 +1584,7 @@
           "market_cap_rank": 17
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 378.2,
-          "avg_change_1h": 0.737022341167389,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "spx6900": {
       "info": {
@@ -2522,12 +2535,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.058545,
-          "change_1h": -0.9590839581949083,
-          "market_cap_rank": 146
-        },
-        {
           "timestamp": "2026-05-19T21:27:27.424Z",
           "price": 0.059204,
           "change_1h": 2.5441736313613124,
@@ -2537,8 +2544,8 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.058844,
-          "avg_change_1h": 0.8778694597549306,
+          "avg_price": 0.058545,
+          "avg_change_1h": -0.9590839581949083,
           "num_samples": 1
         }
       ]
@@ -3087,12 +3094,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 2.03,
-          "change_1h": 2.346022322653247,
-          "market_cap_rank": 21
-        },
-        {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 2.04,
           "change_1h": 1.514489010460156,
@@ -3150,9 +3151,9 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 1.9849999999999999,
-          "avg_change_1h": -0.5847640240821229,
-          "num_samples": 2
+          "avg_price": 2.03,
+          "avg_change_1h": 2.346022322653247,
+          "num_samples": 1
         }
       ]
     },
@@ -3270,14 +3271,7 @@
           "market_cap_rank": 151
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.051879,
-          "avg_change_1h": 1.867500830333834,
-          "num_samples": 2
-        }
-      ]
+      "daily_averages": []
     },
     "wrapped-ether-mantle-bridge": {
       "info": {
@@ -3342,12 +3336,6 @@
       "last_seen": "2026-05-20T23:23:58.288Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 1.002,
-          "change_1h": 2.235227940302531,
-          "market_cap_rank": 168
-        },
         {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.992143,
@@ -3466,9 +3454,9 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.9871814999999999,
-          "avg_change_1h": 0.4188313772575393,
-          "num_samples": 2
+          "avg_price": 1.002,
+          "avg_change_1h": 2.235227940302531,
+          "num_samples": 1
         }
       ]
     },
@@ -3774,15 +3762,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/12882/large/Other_200x200.png?1738782212"
       },
       "first_seen": "2025-12-31T11:09:13.013Z",
-      "last_seen": "2026-05-20T23:23:58.288Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 5.14,
-          "change_1h": -1.8330650212811193,
-          "market_cap_rank": 102
-        },
         {
           "timestamp": "2026-05-19T11:58:53.663Z",
           "price": 4.87,
@@ -3836,14 +3818,20 @@
           "price": 4.77,
           "change_1h": -1.0194545419318752,
           "market_cap_rank": 108
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 5.0,
+          "change_1h": 1.8374734199504916,
+          "market_cap_rank": 104
         }
       ],
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 5.155,
-          "avg_change_1h": -1.8564298740784222,
-          "num_samples": 2
+          "avg_price": 5.14,
+          "avg_change_1h": -1.8330650212811193,
+          "num_samples": 1
         }
       ]
     },
@@ -4597,15 +4585,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/26580/large/ONDO.png?1696525656"
       },
       "first_seen": "2026-01-10T14:01:01.448Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.381005,
-          "change_1h": -2.894511137529181,
-          "market_cap_rank": 47
-        },
         {
           "timestamp": "2026-05-19T08:06:52.611Z",
           "price": 0.383353,
@@ -4659,14 +4641,20 @@
           "price": 0.402946,
           "change_1h": -1.5683248897688657,
           "market_cap_rank": 47
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.406506,
+          "change_1h": -1.3194422053492778,
+          "market_cap_rank": 47
         }
       ],
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.3833795,
-          "avg_change_1h": -0.46791011255190795,
-          "num_samples": 2
+          "avg_price": 0.381005,
+          "avg_change_1h": -2.894511137529181,
+          "num_samples": 1
         }
       ]
     },
@@ -4748,7 +4736,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/55974/large/T7asvmCb_400x400.jpg?1747902862"
       },
       "first_seen": "2026-01-12T02:40:00.536Z",
-      "last_seen": "2026-05-20T14:59:00.869Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -4798,16 +4786,15 @@
           "price": 0.370629,
           "change_1h": -2.0148452557413417,
           "market_cap_rank": 128
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.319705,
+          "change_1h": -15.578083151632235,
+          "market_cap_rank": 142
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.352848,
-          "avg_change_1h": -1.3481699498392143,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "lombard-staked-btc": {
       "info": {
@@ -4843,15 +4830,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/69848/large/%E5%B8%81%E5%AE%89%E4%BA%BA%E7%94%9F.png?1759839225"
       },
       "first_seen": "2026-01-14T02:40:11.436Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.440679,
-          "change_1h": -1.7337816010316847,
-          "market_cap_rank": 115
-        },
         {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.45784,
@@ -4905,13 +4886,19 @@
           "price": 0.442374,
           "change_1h": 1.582649203848305,
           "market_cap_rank": 114
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.43437,
+          "change_1h": -1.4775928765382982,
+          "market_cap_rank": 115
         }
       ],
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.454629,
-          "avg_change_1h": 1.3679255194935702,
+          "avg_price": 0.440679,
+          "avg_change_1h": -1.7337816010316847,
           "num_samples": 1
         }
       ]
@@ -4953,14 +4940,7 @@
       "last_seen": "2026-05-19T02:58:59.601Z",
       "is_active": false,
       "hourly_data": [],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.067183,
-          "avg_change_1h": 1.7209045478513836,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "a7a5": {
       "info": {
@@ -5061,14 +5041,7 @@
           "market_cap_rank": 181
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 1.18,
-          "avg_change_1h": -1.654627363897258,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "usd-coin": {
       "info": {
@@ -5428,12 +5401,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.230448,
-          "change_1h": 1.4188951127513298,
-          "market_cap_rank": 101
-        },
-        {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.230011,
           "change_1h": 1.9484545327918248,
@@ -5488,7 +5455,14 @@
           "market_cap_rank": 100
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.230448,
+          "avg_change_1h": 1.4188951127513298,
+          "num_samples": 1
+        }
+      ]
     },
     "adi-token": {
       "info": {
@@ -5783,7 +5757,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/30376/large/Hg4_Lhbg_400x400.jpg?1696529270"
       },
       "first_seen": "2026-02-04T10:11:29.158Z",
-      "last_seen": "2026-05-21T01:34:12.438Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -5821,6 +5795,12 @@
           "price": 7.12946e-07,
           "change_1h": 2.4212902194608352,
           "market_cap_rank": 233
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 7.33643e-07,
+          "change_1h": 1.4813823237195232,
+          "market_cap_rank": 228
         }
       ],
       "daily_averages": []
@@ -5929,15 +5909,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/1877/large/TRAC.jpg?1696502873"
       },
       "first_seen": "2026-02-04T15:12:25.206Z",
-      "last_seen": "2026-05-21T01:34:12.438Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.383899,
-          "change_1h": 3.157756634382035,
-          "market_cap_rank": 207
-        },
         {
           "timestamp": "2026-05-19T11:58:53.663Z",
           "price": 0.360791,
@@ -6039,14 +6013,20 @@
           "price": 0.448046,
           "change_1h": -2.9361611245062322,
           "market_cap_rank": 189
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.496314,
+          "change_1h": 9.780265233451294,
+          "market_cap_rank": 178
         }
       ],
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.3772455,
-          "avg_change_1h": -5.11691670596236,
-          "num_samples": 2
+          "avg_price": 0.383899,
+          "avg_change_1h": 3.157756634382035,
+          "num_samples": 1
         }
       ]
     },
@@ -6218,12 +6198,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.088426,
-          "change_1h": 1.4566712449025843,
-          "market_cap_rank": 180
-        },
-        {
           "timestamp": "2026-05-19T10:12:57.103Z",
           "price": 0.087412,
           "change_1h": -1.2466436892352166,
@@ -6266,7 +6240,14 @@
           "market_cap_rank": 181
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.088426,
+          "avg_change_1h": 1.4566712449025843,
+          "num_samples": 1
+        }
+      ]
     },
     "zano": {
       "info": {
@@ -6384,12 +6365,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.422593,
-          "change_1h": 1.4001645089456665,
-          "market_cap_rank": 184
-        },
-        {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.431444,
           "change_1h": 2.244235256966254,
@@ -6462,7 +6437,14 @@
           "market_cap_rank": 170
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.422593,
+          "avg_change_1h": 1.4001645089456665,
+          "num_samples": 1
+        }
+      ]
     },
     "sosovalue": {
       "info": {
@@ -6752,7 +6734,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/69108/large/unibase.png?1757501820"
       },
       "first_seen": "2026-02-13T13:24:22.488Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -6874,16 +6856,15 @@
           "price": 0.115542,
           "change_1h": 1.319667177612523,
           "market_cap_rank": 156
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.113107,
+          "change_1h": -3.00358490146178,
+          "market_cap_rank": 157
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.133819,
-          "avg_change_1h": -2.4057885553056013,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "venice-token": {
       "info": {
@@ -7029,14 +7010,7 @@
           "market_cap_rank": 83
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 14.77,
-          "avg_change_1h": -0.25075179612411436,
-          "num_samples": 2
-        }
-      ]
+      "daily_averages": []
     },
     "aethir": {
       "info": {
@@ -7156,14 +7130,7 @@
           "market_cap_rank": 219
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.442405,
-          "avg_change_1h": -1.491680551447496,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "meteora": {
       "info": {
@@ -7202,12 +7169,6 @@
       "last_seen": "2026-05-21T02:59:27.520Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.03622775,
-          "change_1h": -1.962498984743614,
-          "market_cap_rank": 150
-        },
         {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.03266647,
@@ -7266,8 +7227,8 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.03437296,
-          "avg_change_1h": 10.638934461336449,
+          "avg_price": 0.03622775,
+          "avg_change_1h": -1.962498984743614,
           "num_samples": 1
         }
       ]
@@ -7283,12 +7244,6 @@
       "last_seen": "2026-05-21T00:21:57.182Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.600328,
-          "change_1h": -6.219857376881334,
-          "market_cap_rank": 226
-        },
         {
           "timestamp": "2026-05-19T08:06:52.611Z",
           "price": 0.599021,
@@ -7323,8 +7278,8 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.586381,
-          "avg_change_1h": 1.256791280916548,
+          "avg_price": 0.600328,
+          "avg_change_1h": -6.219857376881334,
           "num_samples": 1
         }
       ]
@@ -7550,14 +7505,7 @@
           "market_cap_rank": 188
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.837804,
-          "avg_change_1h": 2.0816356628207444,
-          "num_samples": 2
-        }
-      ]
+      "daily_averages": []
     },
     "centrifuge-2": {
       "info": {
@@ -7711,14 +7659,7 @@
           "market_cap_rank": 191
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.299972,
-          "avg_change_1h": -1.1556612492668523,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "avant-usd": {
       "info": {
@@ -7954,14 +7895,7 @@
           "market_cap_rank": 176
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.802062,
-          "avg_change_1h": 1.6070483827808961,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "immortal-token": {
       "info": {
@@ -8075,7 +8009,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/52230/large/Banana_token_image.png?1732801941"
       },
       "first_seen": "2026-03-14T01:30:00.595Z",
-      "last_seen": "2026-05-21T00:21:57.182Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -8131,6 +8065,12 @@
           "price": 0.01353276,
           "change_1h": -2.1374474574667417,
           "market_cap_rank": 241
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.01354288,
+          "change_1h": -1.7417196329988653,
+          "market_cap_rank": 243
         }
       ],
       "daily_averages": []
@@ -8269,14 +8209,7 @@
           "market_cap_rank": 216
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 110.06,
-          "avg_change_1h": -2.242377615941349,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "templar": {
       "info": {
@@ -8338,15 +8271,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/102172616/large/edgex.png?1774332310"
       },
       "first_seen": "2026-03-31T08:18:00.619Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 1.27,
-          "change_1h": -1.0556629574758627,
-          "market_cap_rank": 113
-        },
         {
           "timestamp": "2026-05-19T10:12:57.103Z",
           "price": 1.31,
@@ -8388,9 +8315,22 @@
           "price": 1.36,
           "change_1h": -1.6742882661516343,
           "market_cap_rank": 110
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 1.38,
+          "change_1h": 1.2871067484558991,
+          "market_cap_rank": 108
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 1.27,
+          "avg_change_1h": -1.0556629574758627,
+          "num_samples": 1
+        }
+      ]
     },
     "ontology": {
       "info": {
@@ -8478,7 +8418,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/71375/large/ethgas_token_200.png?1769055039"
       },
       "first_seen": "2026-04-11T12:04:04.655Z",
-      "last_seen": "2026-05-20T23:23:58.288Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -8528,16 +8468,15 @@
           "price": 0.130653,
           "change_1h": -1.129659922465807,
           "market_cap_rank": 163
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.125516,
+          "change_1h": -2.8902329643461075,
+          "market_cap_rank": 166
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.138825,
-          "avg_change_1h": -1.3719284024170024,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "skyai": {
       "info": {
@@ -8698,12 +8637,6 @@
       "is_active": true,
       "hourly_data": [
         {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.438725,
-          "change_1h": -3.308078162694418,
-          "market_cap_rank": 223
-        },
-        {
           "timestamp": "2026-05-19T16:10:01.524Z",
           "price": 0.432905,
           "change_1h": 1.5768134609007143,
@@ -8764,7 +8697,14 @@
           "market_cap_rank": 229
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.438725,
+          "avg_change_1h": -3.308078162694418,
+          "num_samples": 1
+        }
+      ]
     },
     "enjincoin": {
       "info": {
@@ -8800,7 +8740,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/32594/large/dydx.png?1698673495"
       },
       "first_seen": "2026-04-18T01:29:57.294Z",
-      "last_seen": "2026-05-20T12:46:07.430Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -8819,6 +8759,12 @@
           "timestamp": "2026-05-20T12:46:07.430Z",
           "price": 0.153512,
           "change_1h": 2.252975603033747,
+          "market_cap_rank": 248
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.157051,
+          "change_1h": -1.351782718012568,
           "market_cap_rank": 248
         }
       ],
@@ -8845,15 +8791,9 @@
         "image": "https://coin-images.coingecko.com/coins/images/50333/large/IMG_0728.jpeg?1727384521"
       },
       "first_seen": "2026-04-18T21:07:08.304Z",
-      "last_seen": "2026-05-21T01:34:12.438Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.00033668,
-          "change_1h": 2.0839691261934092,
-          "market_cap_rank": 234
-        },
         {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.00032826,
@@ -8961,13 +8901,19 @@
           "price": 0.00032899,
           "change_1h": 2.7506339660686043,
           "market_cap_rank": 243
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.00033999,
+          "change_1h": 3.014551809265405,
+          "market_cap_rank": 236
         }
       ],
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.00032813,
-          "avg_change_1h": 3.232244235674738,
+          "avg_price": 0.00033668,
+          "avg_change_1h": 2.0839691261934092,
           "num_samples": 1
         }
       ]
@@ -9048,12 +8994,6 @@
       "last_seen": "2026-05-21T02:59:27.520Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.682892,
-          "change_1h": -0.9761592846004944,
-          "market_cap_rank": 220
-        },
         {
           "timestamp": "2026-05-19T10:12:57.103Z",
           "price": 0.685785,
@@ -9217,7 +9157,14 @@
           "market_cap_rank": 173
         }
       ],
-      "daily_averages": []
+      "daily_averages": [
+        {
+          "date": "2026-05-19",
+          "avg_price": 0.682892,
+          "avg_change_1h": -0.9761592846004944,
+          "num_samples": 1
+        }
+      ]
     },
     "manadia": {
       "info": {
@@ -9292,7 +9239,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/70014/large/lab.png?1760352822"
       },
       "first_seen": "2026-05-02T05:45:29.721Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -9396,16 +9343,15 @@
           "price": 4.29,
           "change_1h": -1.85682148257093,
           "market_cap_rank": 139
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 4.62,
+          "change_1h": 7.150738461466398,
+          "market_cap_rank": 131
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 4.71,
-          "avg_change_1h": 0.9164310567612253,
-          "num_samples": 2
-        }
-      ]
+      "daily_averages": []
     },
     "tagger": {
       "info": {
@@ -9513,7 +9459,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/68464/large/billions.png?1755828007"
       },
       "first_seen": "2026-05-06T07:07:57.747Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -9671,16 +9617,15 @@
           "price": 0.082216,
           "change_1h": -3.4475838256299665,
           "market_cap_rank": 187
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.093057,
+          "change_1h": 10.140029510171338,
+          "market_cap_rank": 176
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.136677,
-          "avg_change_1h": -10.74289561703709,
-          "num_samples": 1
-        }
-      ]
+      "daily_averages": []
     },
     "kaio": {
       "info": {
@@ -9762,7 +9707,7 @@
         "image": "https://coin-images.coingecko.com/coins/images/54874/large/oAapmKlz_400x400.png?1742236858"
       },
       "first_seen": "2026-05-16T17:18:35.713Z",
-      "last_seen": "2026-05-21T02:59:27.520Z",
+      "last_seen": "2026-05-21T04:36:13.773Z",
       "is_active": true,
       "hourly_data": [
         {
@@ -9884,16 +9829,15 @@
           "price": 0.055159,
           "change_1h": -10.608847083865344,
           "market_cap_rank": 218
+        },
+        {
+          "timestamp": "2026-05-21T04:36:13.773Z",
+          "price": 0.057392,
+          "change_1h": 4.796702674616081,
+          "market_cap_rank": 218
         }
       ],
-      "daily_averages": [
-        {
-          "date": "2026-05-19",
-          "avg_price": 0.04931332,
-          "avg_change_1h": -0.4239429541755402,
-          "num_samples": 2
-        }
-      ]
+      "daily_averages": []
     },
     "apyusd": {
       "info": {
@@ -9919,12 +9863,6 @@
       "last_seen": "2026-05-21T00:21:57.182Z",
       "is_active": true,
       "hourly_data": [
-        {
-          "timestamp": "2026-05-19T04:31:30.888Z",
-          "price": 0.181111,
-          "change_1h": 1.5770198967827813,
-          "market_cap_rank": 187
-        },
         {
           "timestamp": "2026-05-19T06:21:05.962Z",
           "price": 0.17703,
@@ -10037,8 +9975,8 @@
       "daily_averages": [
         {
           "date": "2026-05-19",
-          "avg_price": 0.194551,
-          "avg_change_1h": 2.6065406609893276,
+          "avg_price": 0.181111,
+          "avg_change_1h": 1.5770198967827813,
           "num_samples": 1
         }
       ]
